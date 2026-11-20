@@ -1,58 +1,131 @@
 ---
-const year = new Date().getFullYear();
 ---
-
 <footer>
-  <div class="footer-inner container">
-    <div>
-      <div class="footer-logo"><span>TAPPC</span> Lab</div>
-      <div class="footer-sub">Theoretical Astro-Particle Physics and Cosmology</div>
-      <div class="footer-sub ko">천체입자물리학 및 우주론 이론 연구실</div>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="logo-tappc">TAPPC</span>
+          <span class="logo-sub">Lab</span>
+        </div>
+        <p class="footer-tagline">Theoretical Astro-Particle Physics & Cosmology</p>
+        <p class="footer-tagline-ko">천체입자물리학 및 우주론 이론 연구실</p>
+      </div>
+      <div class="footer-links-group">
+        <span class="footer-group-title">Navigation</span>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#members">Members</a></li>
+          <li><a href="#publications">Publications</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <span class="footer-group-title">Links</span>
+        <ul>
+          <li><a href="https://www.skku.edu" target="_blank">SKKU</a></li>
+          <li><a href="https://physics.skku.edu" target="_blank">Dept. of Physics</a></li>
+          <li><a href="https://inspirehep.net" target="_blank">InspireHEP</a></li>
+          <li><a href="https://arxiv.org/list/hep-ph/recent" target="_blank">arXiv hep-ph</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-right">
-      <div>Sungkyunkwan University</div>
-      <div>Department of Physics, Suwon, Korea</div>
-      <div class="copy">© {year} TAPPC Lab. All rights reserved.</div>
+    <div class="footer-bottom">
+      <p>© {new Date().getFullYear()} TAPPC Lab, Sungkyunkwan University. All rights reserved.</p>
+      <p>2066 Seobu-ro, Jangan-gu, Suwon, Gyeonggi-do 16419, Korea</p>
     </div>
   </div>
 </footer>
 
 <style>
   footer {
-    background: var(--heading);
-    color: rgba(255,255,255,0.5);
-    padding: 48px;
+    background: #070910;
+    border-top: 1px solid var(--border);
+    padding: 72px 0 32px;
   }
 
-  .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 64px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
   }
 
   .footer-logo {
-    font-family: 'EB Garamond', serif;
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.9);
-    margin-bottom: 4px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 12px;
   }
 
-  .footer-logo span { color: #7ba7d4; }
-
-  .footer-sub {
-    font-size: 0.75rem;
-    margin-top: 2px;
+  .logo-tappc {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 0.08em;
   }
 
-  .footer-sub.ko { margin-top: 4px; }
+  .logo-sub {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 400;
+  }
 
-  .footer-right { text-align: right; font-size: 0.75rem; }
+  .footer-tagline {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
 
-  .copy { margin-top: 8px; }
+  .footer-tagline-ko {
+    font-size: 0.8rem;
+    color: rgba(136,145,170,0.5);
+    margin-top: 4px;
+  }
 
-  @media (max-width: 768px) {
-    footer { padding: 40px 24px; }
-    .footer-inner { flex-direction: column; gap: 20px; }
-    .footer-right { text-align: center; }
+  .footer-group-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .footer-links-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links-group a {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+
+  .footer-links-group a:hover { color: var(--accent); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .footer-bottom p {
+    font-size: 0.78rem;
+    color: rgba(136,145,170,0.5);
+  }
+
+  @media (max-width: 900px) {
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
   }
 </style>

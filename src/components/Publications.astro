@@ -1,166 +1,153 @@
 ---
 const pubs = [
-  {
-    year: '2024',
-    title: 'Gravitational Wave Signals from First-Order Phase Transitions in Extended Scalar Sectors',
-    authors: 'Author A, Author B, et al. (TAPPC)',
-    journal: 'Physical Review D · arXiv:24XX.XXXXX',
-    badge: 'Featured',
-    featured: true,
-  },
-  {
-    year: '2024',
-    title: 'Dark Matter Freeze-out Beyond the Standard Halo Model: Constraints from CMB Anisotropies',
-    authors: 'Author A, Author C, et al. (TAPPC)',
-    journal: 'Journal of Cosmology and Astroparticle Physics',
-    badge: 'JCAP',
-    featured: false,
-  },
-  {
-    year: '2023',
-    title: 'Leptogenesis via Heavy Sterile Neutrino Oscillations in the Non-Equilibrium Regime',
-    authors: 'Author B, Author D, et al. (TAPPC)',
-    journal: 'Physical Review Letters',
-    badge: 'PRL',
-    featured: true,
-  },
-  {
-    year: '2023',
-    title: 'Primordial Black Holes and the Stochastic Gravitational Wave Background: A Unified Picture',
-    authors: 'Author A, Author B, Author E (TAPPC)',
-    journal: 'Physical Review D',
-    badge: 'PRD',
-    featured: false,
-  },
-  {
-    year: '2022',
-    title: 'Big Bang Nucleosynthesis Constraints on Light Dark Sector Models',
-    authors: 'Author C, Author A, et al. (TAPPC)',
-    journal: 'Physics Letters B',
-    badge: 'PLB',
-    featured: false,
-  },
+  { year: '2024', title: 'Dark matter constraints from cosmic microwave background anisotropies', authors: 'T. Author, K. Choi et al.', journal: 'Physical Review D', vol: '109, 083512', badge: 'PRD' },
+  { year: '2023', title: 'Gravitational wave signatures of electroweak phase transitions in extensions of the Standard Model', authors: 'K. Choi, S. Lee et al.', journal: 'Journal of Cosmology and Astroparticle Physics', vol: '2023, 041', badge: 'JCAP' },
+  { year: '2023', title: 'Primordial nucleosynthesis bounds on new light degrees of freedom', authors: 'K. Choi et al.', journal: 'Physics Letters B', vol: '840, 137894', badge: 'PLB' },
+  { year: '2022', title: 'Neutrino self-interactions and structure formation', authors: 'T. Author, K. Choi et al.', journal: 'Physical Review Letters', vol: '129, 101103', badge: 'PRL' },
+  { year: '2022', title: 'Axion dark matter and stellar evolution', authors: 'K. Choi, B. Park et al.', journal: 'Journal of High Energy Physics', vol: '2022, 113', badge: 'JHEP' },
 ];
 ---
-
 <section id="publications">
   <div class="container">
-    <div class="section-label">Selected Publications</div>
-    <h2>Recent Work</h2>
-    <div class="section-divider"></div>
+    <p class="section-label">Publications</p>
+    <h2 class="section-title">Selected Papers</h2>
+    <div class="divider"></div>
 
     <div class="pub-list">
-      {pubs.map(pub => (
+      {pubs.map((p, i) => (
         <div class="pub-item">
-          <div class="pub-year">{pub.year}</div>
-          <div class="pub-content">
-            <div class="pub-title">{pub.title}</div>
-            <div class="pub-authors">{pub.authors}</div>
-            <div class="pub-journal">{pub.journal}</div>
+          <div class="pub-index">{String(i + 1).padStart(2, '0')}</div>
+          <div class="pub-body">
+            <div class="pub-meta">
+              <span class="pub-year">{p.year}</span>
+              <span class="pub-badge">{p.badge}</span>
+            </div>
+            <h3 class="pub-title">{p.title}</h3>
+            <p class="pub-authors">{p.authors}</p>
+            <p class="pub-journal"><em>{p.journal}</em> {p.vol}</p>
           </div>
-          <span class={`pub-badge${pub.featured ? ' featured' : ''}`}>{pub.badge}</span>
+          <a href="#" class="pub-link" title="View paper">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
       ))}
     </div>
 
-    <p class="pub-footer">
-      Full list on
-      <a href="https://arxiv.org/search/?searchtype=author&query=TAPPC">arXiv</a>
-      and <a href="https://inspirehep.net/">INSPIRE-HEP</a>.
-    </p>
+    <div class="pub-footer">
+      <a href="https://inspirehep.net" target="_blank" rel="noopener" class="btn-ghost">
+        View All on InspireHEP →
+      </a>
+    </div>
   </div>
 </section>
 
 <style>
-  section { padding: 100px 48px; }
-
-  h2 {
-    font-family: 'EB Garamond', serif;
-    font-size: clamp(2rem, 3.5vw, 2.9rem);
-    font-weight: 400;
-    color: var(--heading);
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
+  #publications { background: var(--bg2); }
 
   .pub-list {
-    margin-top: 56px;
     display: flex;
     flex-direction: column;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
+    gap: 0;
   }
 
   .pub-item {
-    background: var(--white);
-    padding: 28px 32px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
     gap: 24px;
-    align-items: flex-start;
-    transition: background 0.15s;
+    align-items: start;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
   }
 
-  .pub-item:hover { background: var(--off-white); }
+  .pub-item:first-child { border-top: 1px solid var(--border); }
+
+  .pub-index {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    padding-top: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .pub-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
 
   .pub-year {
-    font-family: 'EB Garamond', serif;
-    font-size: 0.9rem;
-    color: var(--muted);
-    min-width: 48px;
-    padding-top: 2px;
-  }
-
-  .pub-content { flex: 1; }
-
-  .pub-title {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--heading);
-    margin-bottom: 6px;
-    line-height: 1.5;
-  }
-
-  .pub-authors { font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; }
-
-  .pub-journal {
-    font-size: 0.78rem;
-    color: var(--accent);
+    font-size: 0.8rem;
+    color: var(--text-muted);
     font-weight: 500;
   }
 
   .pub-badge {
     font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    white-space: nowrap;
-    flex-shrink: 0;
-    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    background: rgba(201,135,45,0.15);
+    color: var(--accent);
+    border: 1px solid rgba(201,135,45,0.3);
+    border-radius: 2px;
   }
 
-  .pub-badge.featured {
-    background: var(--accent-light);
+  .pub-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .pub-authors {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .pub-journal {
+    font-size: 0.82rem;
+    color: rgba(136,145,170,0.7);
+  }
+
+  .pub-link {
+    padding-top: 4px;
+    color: var(--text-muted);
+    transition: color 0.2s, transform 0.2s;
+    display: block;
+  }
+
+  .pub-link:hover {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+  }
+
+  .pub-footer {
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  .btn-ghost {
+    display: inline-block;
+    padding: 12px 32px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover {
     border-color: var(--accent);
     color: var(--accent);
   }
 
-  .pub-footer {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    color: var(--muted);
-  }
-
-  .pub-footer a { color: var(--accent); }
-
-  @media (max-width: 900px) {
-    section { padding: 72px 24px; }
-    .pub-item { flex-wrap: wrap; }
+  @media (max-width: 600px) {
+    .pub-item { grid-template-columns: 36px 1fr; }
+    .pub-link { display: none; }
   }
 </style>

@@ -1,35 +1,26 @@
 ---
 const news = [
-  {
-    date: 'November 2024',
-    title: 'New Paper Accepted in Physical Review D',
-    body: 'Our work on gravitational wave signatures from cosmological phase transitions has been accepted for publication.',
-  },
-  {
-    date: 'September 2024',
-    title: 'Invited Talk at COSPA 2024',
-    body: 'Our PI presented recent results on dark matter freeze-out and indirect detection at the International Symposium on Cosmology and Particle Astrophysics.',
-  },
-  {
-    date: 'August 2024',
-    title: 'New Graduate Students Join TAPPC',
-    body: 'We welcome two new M.S. students to the lab. They will work on neutrino cosmology and astroparticle phenomenology.',
-  },
+  { date: 'Nov 2024', tag: 'Award', title: 'Lab member wins Best Poster Award at the Korean Physical Society Annual Meeting', desc: 'PhD student received recognition for outstanding research on primordial gravitational wave signatures.' },
+  { date: 'Sep 2024', tag: 'Publication', title: 'New paper on CMB constraints published in Physical Review D', desc: 'Our latest work on dark matter constraints from CMB anisotropy power spectra has been accepted in PRD.' },
+  { date: 'Aug 2024', tag: 'Event', title: 'TAPPC hosts international workshop on early-universe cosmology', desc: 'The lab organized a week-long workshop bringing together researchers from Korea, Japan, and Europe.' },
 ];
 ---
-
 <section id="news">
   <div class="container">
-    <div class="section-label">News &amp; Updates</div>
-    <h2>Latest from the Lab</h2>
-    <div class="section-divider"></div>
+    <p class="section-label">News</p>
+    <h2 class="section-title">Latest Updates</h2>
+    <div class="divider"></div>
 
     <div class="news-grid">
       {news.map(n => (
         <div class="news-card">
-          <div class="news-date">{n.date}</div>
-          <h3>{n.title}</h3>
-          <p>{n.body}</p>
+          <div class="news-header">
+            <span class="news-date">{n.date}</span>
+            <span class="news-tag">{n.tag}</span>
+          </div>
+          <h3 class="news-title">{n.title}</h3>
+          <p class="news-desc">{n.desc}</p>
+          <a href="#" class="news-more">Read more →</a>
         </div>
       ))}
     </div>
@@ -37,54 +28,79 @@ const news = [
 </section>
 
 <style>
-  section { padding: 100px 48px; }
-
-  h2 {
-    font-family: 'EB Garamond', serif;
-    font-size: clamp(2rem, 3.5vw, 2.9rem);
-    font-weight: 400;
-    color: var(--heading);
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
+  #news { background: var(--bg); }
 
   .news-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    margin-top: 56px;
   }
 
   .news-card {
+    background: var(--bg2);
     border: 1px solid var(--border);
     border-radius: 4px;
-    padding: 28px;
-    background: var(--white);
-    transition: box-shadow 0.2s;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: border-color 0.25s, transform 0.25s;
   }
 
-  .news-card:hover { box-shadow: 0 4px 20px rgba(26,77,143,0.07); }
+  .news-card:hover {
+    border-color: rgba(201,135,45,0.3);
+    transform: translateY(-4px);
+  }
+
+  .news-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   .news-date {
-    font-size: 0.75rem;
-    color: var(--muted);
-    margin-bottom: 10px;
-    font-weight: 500;
-    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.05em;
   }
 
-  h3 {
-    font-family: 'EB Garamond', serif;
-    font-size: 1.1rem;
-    color: var(--heading);
-    margin-bottom: 10px;
+  .news-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    background: rgba(74,144,217,0.1);
+    color: var(--accent2);
+    border: 1px solid rgba(74,144,217,0.25);
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  .news-title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #fff;
     line-height: 1.4;
   }
 
-  p { font-size: 0.8375rem; color: var(--muted); line-height: 1.65; }
+  .news-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .news-more {
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 500;
+    transition: gap 0.2s;
+  }
+
+  .news-more:hover { opacity: 0.8; }
 
   @media (max-width: 900px) {
-    section { padding: 72px 24px; }
     .news-grid { grid-template-columns: 1fr; }
   }
 </style>

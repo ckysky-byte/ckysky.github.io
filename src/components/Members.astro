@@ -1,38 +1,63 @@
 ---
-const students = [
-  { initials: 'PhD', name: 'Ph.D Student', role: 'Doctoral Researcher', research: 'Dark Matter · BBN' },
-  { initials: 'PhD', name: 'Ph.D Student', role: 'Doctoral Researcher', research: 'Inflation · GW' },
-  { initials: 'MS', name: 'Graduate Student', role: 'M.S. Researcher', research: 'Neutrino Physics' },
-  { initials: 'MS', name: 'Graduate Student', role: 'M.S. Researcher', research: 'Astroparticle' },
-];
 ---
-
-<section id="members">
+<section id="members" style="background: var(--bg2);">
   <div class="container">
-    <div class="section-label">People</div>
-    <h2>Lab Members</h2>
-    <div class="section-divider"></div>
+    <p class="section-label">People</p>
+    <h2 class="section-title">Research Team</h2>
+    <div class="divider"></div>
 
+    <!-- PI -->
     <div class="pi-card">
-      <div class="avatar">PI</div>
+      <div class="pi-photo">
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+            <circle cx="40" cy="30" r="18" fill="rgba(201,135,45,0.3)"/>
+            <ellipse cx="40" cy="75" rx="28" ry="20" fill="rgba(201,135,45,0.2)"/>
+          </svg>
+        </div>
+      </div>
       <div class="pi-info">
-        <h3>Principal Investigator</h3>
-        <div class="role">Professor · Department of Physics</div>
-        <p>
-          Sungkyunkwan University, Suwon, Korea.<br />
-          Research interests: dark matter phenomenology, early-universe cosmology,
-          neutrino physics, and beyond-Standard-Model particle physics.
-        </p>
+        <span class="pi-role">Principal Investigator</span>
+        <h2 class="pi-name">Prof. [Name]</h2>
+        <p class="pi-affil">Department of Physics, Sungkyunkwan University</p>
+        <div class="pi-contacts">
+          <div class="pi-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:tappc@skku.edu">tappc@skku.edu</a>
+          </div>
+          <div class="pi-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Engineering Building, Room 25405, SKKU, Suwon</span>
+          </div>
+        </div>
+        <div class="pi-bio">
+          <p>Research interests: dark matter phenomenology, early-universe cosmology, beyond-the-Standard-Model physics, neutrino cosmology.</p>
+        </div>
       </div>
     </div>
 
+    <!-- Students -->
+    <h3 class="members-subtitle">Graduate Students</h3>
     <div class="members-grid">
-      {students.map(m => (
+      {[
+        { name: 'Student A', role: 'PhD Student', year: '2021–', research: 'Dark matter direct detection & effective field theory' },
+        { name: 'Student B', role: 'PhD Student', year: '2022–', research: 'Primordial gravitational waves & cosmic inflation' },
+        { name: 'Student C', role: 'MS Student', year: '2023–', research: 'Neutrino mass constraints from CMB observations' },
+        { name: 'Student D', role: 'MS Student', year: '2024–', research: 'Big Bang nucleosynthesis & light element abundances' },
+      ].map(m => (
         <div class="member-card">
-          <div class="member-avatar">{m.initials}</div>
-          <div class="member-name">{m.name}</div>
-          <div class="member-role">{m.role}</div>
-          <div class="member-research">{m.research}</div>
+          <div class="member-avatar">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
+              <circle cx="30" cy="22" r="12" fill="rgba(74,144,217,0.3)"/>
+              <ellipse cx="30" cy="58" rx="22" ry="16" fill="rgba(74,144,217,0.2)"/>
+            </svg>
+          </div>
+          <div class="member-info">
+            <span class="member-role">{m.role}</span>
+            <h4 class="member-name">{m.name}</h4>
+            <span class="member-year">{m.year}</span>
+            <p class="member-research">{m.research}</p>
+          </div>
         </div>
       ))}
     </div>
@@ -40,106 +65,160 @@ const students = [
 </section>
 
 <style>
-  section { padding: 100px 48px; background: var(--off-white); }
-
-  h2 {
-    font-family: 'EB Garamond', serif;
-    font-size: clamp(2rem, 3.5vw, 2.9rem);
-    font-weight: 400;
-    color: var(--heading);
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-
+  /* PI Card */
   .pi-card {
-    display: flex;
-    gap: 48px;
-    align-items: center;
-    background: var(--white);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 56px;
+    align-items: start;
+    background: var(--bg3);
     border: 1px solid var(--border);
     border-radius: 4px;
-    padding: 40px 48px;
-    margin-top: 56px;
-    margin-bottom: 32px;
+    padding: 48px;
+    margin-bottom: 64px;
   }
 
-  .avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: var(--light);
-    border: 2px solid var(--border);
-    flex-shrink: 0;
+  .pi-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'EB Garamond', serif;
-    font-size: 1.5rem;
-    color: var(--muted);
+    border: 1px solid var(--border);
+    overflow: hidden;
   }
 
-  .pi-info h3 {
-    font-family: 'EB Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: var(--heading);
-    margin-bottom: 4px;
+  .photo-placeholder {
+    opacity: 0.5;
   }
 
-  .role {
-    font-size: 0.8rem;
-    color: var(--accent);
+  .pi-role {
+    display: inline-block;
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    margin-bottom: 12px;
-    font-family: 'Inter', sans-serif;
+    color: var(--accent);
+    margin-bottom: 10px;
   }
 
-  .pi-info p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+  .pi-name {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .pi-affil {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pi-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .pi-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  .pi-contact-item svg { color: var(--accent); flex-shrink: 0; }
+  .pi-contact-item a { color: var(--text-muted); transition: color 0.2s; }
+  .pi-contact-item a:hover { color: var(--accent); }
+
+  .pi-bio p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  /* Members Grid */
+  .members-subtitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 28px;
+  }
 
   .members-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
   .member-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: var(--bg3);
     border: 1px solid var(--border);
     border-radius: 4px;
-    padding: 28px 20px;
-    text-align: center;
-    background: var(--white);
-    transition: border-color 0.2s, box-shadow 0.2s;
+    padding: 28px;
+    transition: border-color 0.25s, transform 0.25s;
   }
 
   .member-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 4px 20px rgba(26,77,143,0.08);
+    border-color: rgba(74,144,217,0.3);
+    transform: translateY(-3px);
   }
 
   .member-avatar {
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
+    background: var(--bg2);
     border-radius: 50%;
-    background: var(--light);
-    margin: 0 auto 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'EB Garamond', serif;
-    font-size: 1.1rem;
-    color: var(--muted);
+    flex-shrink: 0;
     border: 1px solid var(--border);
+    overflow: hidden;
   }
 
-  .member-name { font-weight: 600; color: var(--heading); font-size: 0.9rem; margin-bottom: 4px; }
-  .member-role { font-size: 0.75rem; color: var(--muted); margin-bottom: 4px; }
-  .member-research { font-size: 0.72rem; color: var(--accent); font-weight: 500; }
+  .member-role {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent2);
+  }
+
+  .member-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 4px 0;
+  }
+
+  .member-year {
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .member-research {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
 
   @media (max-width: 900px) {
-    section { padding: 72px 24px; }
-    .pi-card { flex-direction: column; text-align: center; padding: 32px 24px; }
-    .members-grid { grid-template-columns: repeat(2, 1fr); }
+    .pi-card { grid-template-columns: 1fr; gap: 32px; padding: 28px; }
+    .pi-photo { max-width: 220px; }
+    .members-grid { grid-template-columns: 1fr; }
   }
 </style>

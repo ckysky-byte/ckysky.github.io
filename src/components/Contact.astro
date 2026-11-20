@@ -1,171 +1,190 @@
 ---
 ---
-
-<section id="contact">
+<section id="contact" style="background: var(--bg2);">
   <div class="container">
-    <div class="section-label">Contact &amp; Location</div>
-    <h2>Get in Touch</h2>
-    <div class="section-divider"></div>
-
     <div class="contact-grid">
-      <div class="contact-info">
-        <h3>TAPPC Laboratory</h3>
+      <div class="contact-left">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">
+          Interested in joining the TAPPC group or collaborating with us?
+          We welcome inquiries from motivated students and researchers.
+        </p>
 
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
+        <div class="contact-info">
+          <div class="ci">
+            <span class="ci-label">Address</span>
+            <p>Department of Physics<br/>Sungkyunkwan University<br/>2066 Seobu-ro, Jangan-gu<br/>Suwon, Gyeonggi-do 16419, Korea</p>
           </div>
-          <div>
-            <div class="label">Address</div>
-            <div class="value">Department of Physics, Sungkyunkwan University<br />
-              2066 Seobu-ro, Jangan-gu, Suwon, Gyeonggi-do 16419, Korea</div>
+          <div class="ci">
+            <span class="ci-label">Email</span>
+            <a href="mailto:tappc@skku.edu">tappc@skku.edu</a>
           </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-          </div>
-          <div>
-            <div class="label">Email</div>
-            <div class="value">tappc@skku.edu</div>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-              <line x1="8" y1="21" x2="16" y2="21"/>
-              <line x1="12" y1="17" x2="12" y2="21"/>
-            </svg>
-          </div>
-          <div>
-            <div class="label">Office</div>
-            <div class="value">Science Building, Room XXX<br />성균관대학교 과학관 XXX호</div>
+          <div class="ci">
+            <span class="ci-label">Office</span>
+            <p>Engineering Building 2, Room 25405</p>
           </div>
         </div>
       </div>
 
-      <div class="join-box">
-        <h3>Join Our Team</h3>
-        <p>
-          We are always looking for motivated students and researchers interested in
-          theoretical astro-particle physics and cosmology. Prospective members are
-          encouraged to contact us before applying.
-        </p>
-        <ul class="positions">
-          <li>M.S./Ph.D positions available (2025 Spring/Fall)</li>
-          <li>Postdoctoral fellowship openings (contact us)</li>
-          <li>Undergraduate research internships (semester-long)</li>
-        </ul>
-        <a href="mailto:tappc@skku.edu" class="btn btn-primary">Contact the PI</a>
+      <div class="contact-right">
+        <div class="join-box">
+          <h3>Open Positions</h3>
+          <p>We are always looking for talented students at all levels (MS, PhD) with strong backgrounds in theoretical physics, cosmology, or related fields.</p>
+          <ul class="positions">
+            <li>
+              <span class="pos-badge">MS/PhD</span>
+              <span>Graduate Research Assistant in Dark Matter Theory</span>
+            </li>
+            <li>
+              <span class="pos-badge">Postdoc</span>
+              <span>Postdoctoral Researcher in Astroparticle Phenomenology</span>
+            </li>
+          </ul>
+          <a href="mailto:tappc@skku.edu" class="btn-join">Apply via Email</a>
+        </div>
+
+        <div class="map-box">
+          <div class="map-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Sungkyunkwan University, Suwon
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  section { padding: 100px 48px; background: var(--off-white); }
-
-  h2 {
-    font-family: 'EB Garamond', serif;
-    font-size: clamp(2rem, 3.5vw, 2.9rem);
-    font-weight: 400;
-    color: var(--heading);
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 72px;
-    margin-top: 56px;
+    align-items: start;
   }
 
-  h3 {
-    font-family: 'EB Garamond', serif;
-    font-size: 1.5rem;
-    color: var(--heading);
+  .contact-info {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .ci-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .ci p, .ci a {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .ci a:hover { color: var(--accent); }
+
+  .join-box {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px;
     margin-bottom: 24px;
   }
 
-  .contact-item {
-    display: flex;
-    gap: 14px;
-    margin-bottom: 20px;
-    align-items: flex-start;
+  .join-box h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
   }
 
-  .contact-icon {
-    width: 36px;
-    height: 36px;
-    background: var(--accent-light);
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-    flex-shrink: 0;
+  .join-box > p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
   }
-
-  .contact-icon svg { width: 16px; height: 16px; }
-
-  .label {
-    font-size: 0.72rem;
-    color: var(--muted);
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-bottom: 2px;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .value { font-size: 0.875rem; color: var(--body); line-height: 1.6; }
-
-  .join-box {
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 40px;
-    background: var(--white);
-  }
-
-  .join-box p { font-size: 0.875rem; color: var(--muted); margin-bottom: 24px; line-height: 1.75; }
 
   .positions {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
     margin-bottom: 28px;
   }
 
   .positions li {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.85rem;
-    color: var(--body);
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
   }
 
-  .positions li::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
+  .pos-badge {
     flex-shrink: 0;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    background: rgba(201,135,45,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(201,135,45,0.3);
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
   }
+
+  .btn-join {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .btn-join:hover { background: #e09b3a; }
+
+  .map-box {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(201,135,45,0.1) 0%, transparent 70%);
+  }
+
+  .map-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  .map-label svg { color: var(--accent); }
 
   @media (max-width: 900px) {
-    section { padding: 72px 24px; }
-    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
   }
 </style>

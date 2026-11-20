@@ -1,104 +1,81 @@
 ---
 ---
-
-<section id="home" class="hero-section">
-  <div class="hero-bg"></div>
-  <div class="stars" id="stars"></div>
-  <div class="hero-inner container">
-    <div class="hero-eyebrow">Sungkyunkwan University · Department of Physics</div>
-    <h1>Theoretical <em>Astro-Particle</em><br>Physics &amp; Cosmology</h1>
-    <p class="hero-subtitle">천체입자물리학 및 우주론 이론 연구실</p>
+<section id="hero">
+  <canvas id="starfield"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <p class="hero-label">Sungkyunkwan University · Department of Physics</p>
+    <h1>
+      Theoretical<br/>
+      <em>Astro-Particle</em><br/>
+      Physics &amp; Cosmology
+    </h1>
+    <p class="hero-sub">천체입자물리학 및 우주론 이론 연구실</p>
     <p class="hero-desc">
       We explore the fundamental nature of the universe — from dark matter and neutrinos
       to cosmic inflation and gravitational waves — using the tools of theoretical physics,
       field theory, and computational cosmology.
     </p>
-    <div class="btn-group">
-      <a href="#research" class="btn btn-primary">Our Research</a>
-      <a href="#publications" class="btn btn-outline">Publications</a>
+    <div class="hero-btns">
+      <a href="#research" class="btn-primary">Our Research</a>
+      <a href="#publications" class="btn-ghost">Publications</a>
     </div>
   </div>
-  <div class="hero-scroll">
+  <div class="scroll-hint">
     <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
 
 <style>
-  .hero-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  #hero {
     position: relative;
-    overflow: hidden;
-    padding: 64px 48px 0;
-    background: var(--white);
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 70% 40%, #e8eff9 0%, transparent 60%),
-      radial-gradient(ellipse 50% 50% at 20% 80%, #f5f0e8 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .stars {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-
-  .star {
-    position: absolute;
-    border-radius: 50%;
-    background: var(--accent);
-    opacity: 0;
-    animation: twinkle var(--d, 4s) var(--delay, 0s) ease-in-out infinite;
-  }
-
-  @keyframes twinkle {
-    0%, 100% { opacity: 0; transform: scale(0.8); }
-    50% { opacity: var(--op, 0.3); transform: scale(1); }
-  }
-
-  .hero-inner {
-    position: relative;
-    padding: 0;
-  }
-
-  .hero-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
+    height: 100vh;
+    min-height: 650px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-family: 'Inter', sans-serif;
+    padding: 0;
+    overflow: hidden;
   }
 
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: var(--accent);
+  #starfield {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(11,13,20,0.85) 0%,
+      rgba(11,13,20,0.6) 50%,
+      rgba(11,13,20,0.75) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+  }
+
+  .hero-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
   }
 
   h1 {
-    font-family: 'EB Garamond', serif;
-    font-size: clamp(2.8rem, 5.5vw, 5rem);
-    font-weight: 400;
-    color: var(--heading);
-    line-height: 1.12;
-    letter-spacing: -0.01em;
-    margin-bottom: 10px;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.08;
+    color: #fff;
+    margin-bottom: 16px;
   }
 
   h1 em {
@@ -106,76 +83,125 @@
     color: var(--accent);
   }
 
-  .hero-subtitle {
-    font-family: 'EB Garamond', serif;
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
-    color: var(--muted);
-    margin-bottom: 36px;
-    font-style: italic;
-    letter-spacing: 0.01em;
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 24px;
+    letter-spacing: 0.03em;
   }
 
   .hero-desc {
-    max-width: 560px;
-    font-size: 0.9375rem;
-    color: var(--body);
-    line-height: 1.8;
-    margin-bottom: 48px;
+    font-size: 1rem;
+    color: rgba(232,234,240,0.75);
+    max-width: 540px;
+    line-height: 1.75;
+    margin-bottom: 40px;
   }
 
-  .btn-group {
+  .hero-btns {
     display: flex;
-    gap: 14px;
+    gap: 16px;
     flex-wrap: wrap;
   }
 
-  .hero-scroll {
+  .btn-primary {
+    display: inline-block;
+    padding: 14px 36px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover {
+    background: #e09b3a;
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    display: inline-block;
+    padding: 14px 36px;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  .btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .scroll-hint {
     position: absolute;
-    bottom: 40px;
+    bottom: 36px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    color: var(--muted);
+    gap: 10px;
+    z-index: 2;
+    color: var(--text-muted);
     font-size: 0.7rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    font-family: 'Inter', sans-serif;
   }
 
   .scroll-line {
     width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--border), transparent);
-    animation: scrollDown 1.6s ease-in-out infinite;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
   }
 
-  @keyframes scrollDown {
-    0% { transform: scaleY(0); transform-origin: top; }
-    50% { transform: scaleY(1); transform-origin: top; }
-    51% { transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
+  @keyframes scrollLine {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(0.6); }
   }
 </style>
 
 <script>
-  const starsEl = document.getElementById('stars');
-  if (starsEl) {
-    for (let i = 0; i < 60; i++) {
-      const s = document.createElement('div');
-      s.className = 'star';
-      const size = Math.random() * 2.5 + 0.8;
-      s.style.cssText = `
-        width:${size}px; height:${size}px;
-        left:${Math.random()*100}%;
-        top:${Math.random()*100}%;
-        --d:${(Math.random()*4+3).toFixed(1)}s;
-        --delay:${(Math.random()*5).toFixed(1)}s;
-        --op:${(Math.random()*0.25+0.08).toFixed(2)};
-      `;
-      starsEl.appendChild(s);
-    }
+  const canvas = document.getElementById('starfield') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d')!;
+  let w: number, h: number, stars: {x:number,y:number,r:number,alpha:number,speed:number}[];
+
+  function init() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+    stars = Array.from({length: 220}, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 1.5 + 0.3,
+      alpha: Math.random() * 0.7 + 0.1,
+      speed: Math.random() * 0.3 + 0.05
+    }));
   }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = '#0b0d14';
+    ctx.fillRect(0, 0, w, h);
+    stars.forEach(s => {
+      s.alpha += (Math.random() - 0.5) * 0.03;
+      s.alpha = Math.max(0.05, Math.min(0.9, s.alpha));
+      s.y -= s.speed;
+      if (s.y < 0) { s.y = h; s.x = Math.random() * w; }
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(232,234,240,${s.alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+
+  init();
+  draw();
+  window.addEventListener('resize', init);
 </script>

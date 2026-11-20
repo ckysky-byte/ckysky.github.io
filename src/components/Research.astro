@@ -1,49 +1,28 @@
 ---
 const areas = [
-  {
-    title: 'Dark Matter & Dark Energy',
-    desc: 'Theoretical models for dark matter candidates including WIMPs, axions, and primordial black holes. We study their production mechanisms, detection prospects, and cosmological signatures.',
-    icon: `<circle cx="12" cy="12" r="3"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-dasharray="4 2"/>`,
-  },
-  {
-    title: 'Cosmic Inflation',
-    desc: 'Analysis of inflationary models and their observational imprints on the CMB power spectrum. We investigate reheating dynamics and primordial gravitational waves from inflation.',
-    icon: `<path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/>`,
-  },
-  {
-    title: 'Neutrino Physics',
-    desc: 'Neutrino mass models, leptogenesis, and the role of neutrinos in structure formation. We study sterile neutrinos as warm dark matter candidates and their astrophysical effects.',
-    icon: `<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>`,
-  },
-  {
-    title: 'Gravitational Waves',
-    desc: 'Stochastic gravitational wave backgrounds from phase transitions, cosmic strings, and binary mergers. Theory predictions for LIGO, LISA, and pulsar timing arrays (PTAs).',
-    icon: `<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>`,
-  },
-  {
-    title: 'Big Bang Nucleosynthesis',
-    desc: 'Effects of new physics on primordial element abundances. We constrain BSM models using BBN observations and study the interplay between particle physics and early-universe cosmology.',
-    icon: `<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>`,
-  },
-  {
-    title: 'Astroparticle Phenomenology',
-    desc: 'Connecting high-energy theoretical models with astrophysical observations. Topics include gamma-ray constraints, indirect detection of dark matter, and cosmic-ray propagation.',
-    icon: `<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>`,
-  },
+  { icon: "⬡", title: "Dark Matter & Dark Energy", desc: "Probing the nature of invisible components constituting 95% of the universe through direct detection signatures and cosmological structure formation." },
+  { icon: "◎", title: "Cosmic Inflation", desc: "Studying the rapid early-universe expansion, primordial gravitational waves, and the seeds of cosmic large-scale structure." },
+  { icon: "⬟", title: "Neutrino Physics", desc: "Exploring neutrino masses, mixing, and their pivotal role in Big Bang nucleosynthesis and cosmological evolution." },
+  { icon: "⟳", title: "Gravitational Waves", desc: "Investigating stochastic gravitational wave backgrounds and their connections to early-universe phase transitions and new physics." },
+  { icon: "✦", title: "Big Bang Nucleosynthesis", desc: "Computing light element abundances and constraining new physics through precision primordial nucleosynthesis calculations." },
+  { icon: "⌬", title: "Astroparticle Phenomenology", desc: "Connecting high-energy theoretical models with astrophysical and cosmological observations, from CMB to gamma-ray signals." },
 ];
 ---
-
 <section id="research">
   <div class="container">
-    <div class="section-label">Research Areas</div>
-    <h2>What we work on</h2>
-    <div class="section-divider"></div>
+    <div class="section-header">
+      <p class="section-label">Research Areas</p>
+      <h2 class="section-title">What we work on</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">
+        Our research bridges particle physics and cosmology, tackling open questions about
+        the early universe, dark sector, and high-energy astrophysical phenomena.
+      </p>
+    </div>
     <div class="research-grid">
-      {areas.map(area => (
-        <div class="research-card">
-          <div class="research-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" set:html={area.icon} />
-          </div>
+      {areas.map((area, i) => (
+        <div class="research-card" style={`animation-delay: ${i * 0.08}s`}>
+          <span class="card-icon">{area.icon}</span>
           <h3>{area.title}</h3>
           <p>{area.desc}</p>
         </div>
@@ -53,67 +32,74 @@ const areas = [
 </section>
 
 <style>
-  section { padding: 100px 48px; }
+  #research { background: var(--bg); }
 
-  h2 {
-    font-family: 'EB Garamond', serif;
-    font-size: clamp(2rem, 3.5vw, 2.9rem);
-    font-weight: 400;
-    color: var(--heading);
-    line-height: 1.2;
-    margin-bottom: 20px;
+  .section-header {
+    margin-bottom: 56px;
   }
 
   .research-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-top: 56px;
+    gap: 24px;
   }
 
   .research-card {
-    background: var(--white);
-    padding: 36px 32px;
-    transition: background 0.2s;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px 28px;
+    transition: border-color 0.25s, transform 0.25s, background 0.25s;
+    position: relative;
+    overflow: hidden;
   }
 
-  .research-card:hover { background: var(--accent-light); }
+  .research-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
 
-  .research-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--accent-light);
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .research-card:hover {
+    border-color: rgba(201,135,45,0.3);
+    transform: translateY(-4px);
+    background: var(--bg3);
+  }
+
+  .research-card:hover::before {
+    opacity: 1;
+  }
+
+  .card-icon {
+    display: block;
+    font-size: 1.8rem;
     color: var(--accent);
     margin-bottom: 20px;
+    line-height: 1;
   }
 
-  .research-icon svg { width: 20px; height: 20px; }
-
-  h3 {
-    font-family: 'EB Garamond', serif;
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--heading);
+  .research-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
     margin-bottom: 12px;
-    line-height: 1.3;
   }
 
-  p {
-    font-size: 0.875rem;
-    color: var(--muted);
+  .research-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
     line-height: 1.75;
   }
 
   @media (max-width: 900px) {
+    .research-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 580px) {
     .research-grid { grid-template-columns: 1fr; }
-    section { padding: 72px 24px; }
   }
 </style>
