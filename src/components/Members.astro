@@ -1,0 +1,145 @@
+---
+const students = [
+  { initials: 'PhD', name: 'Ph.D Student', role: 'Doctoral Researcher', research: 'Dark Matter · BBN' },
+  { initials: 'PhD', name: 'Ph.D Student', role: 'Doctoral Researcher', research: 'Inflation · GW' },
+  { initials: 'MS', name: 'Graduate Student', role: 'M.S. Researcher', research: 'Neutrino Physics' },
+  { initials: 'MS', name: 'Graduate Student', role: 'M.S. Researcher', research: 'Astroparticle' },
+];
+---
+
+<section id="members">
+  <div class="container">
+    <div class="section-label">People</div>
+    <h2>Lab Members</h2>
+    <div class="section-divider"></div>
+
+    <div class="pi-card">
+      <div class="avatar">PI</div>
+      <div class="pi-info">
+        <h3>Principal Investigator</h3>
+        <div class="role">Professor · Department of Physics</div>
+        <p>
+          Sungkyunkwan University, Suwon, Korea.<br />
+          Research interests: dark matter phenomenology, early-universe cosmology,
+          neutrino physics, and beyond-Standard-Model particle physics.
+        </p>
+      </div>
+    </div>
+
+    <div class="members-grid">
+      {students.map(m => (
+        <div class="member-card">
+          <div class="member-avatar">{m.initials}</div>
+          <div class="member-name">{m.name}</div>
+          <div class="member-role">{m.role}</div>
+          <div class="member-research">{m.research}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  section { padding: 100px 48px; background: var(--off-white); }
+
+  h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.9rem);
+    font-weight: 400;
+    color: var(--heading);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .pi-card {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 40px 48px;
+    margin-top: 56px;
+    margin-bottom: 32px;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--light);
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--muted);
+  }
+
+  .pi-info h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--heading);
+    margin-bottom: 4px;
+  }
+
+  .role {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .pi-info p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .member-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px 20px;
+    text-align: center;
+    background: var(--white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .member-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(26,77,143,0.08);
+  }
+
+  .member-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--light);
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  .member-name { font-weight: 600; color: var(--heading); font-size: 0.9rem; margin-bottom: 4px; }
+  .member-role { font-size: 0.75rem; color: var(--muted); margin-bottom: 4px; }
+  .member-research { font-size: 0.72rem; color: var(--accent); font-weight: 500; }
+
+  @media (max-width: 900px) {
+    section { padding: 72px 24px; }
+    .pi-card { flex-direction: column; text-align: center; padding: 32px 24px; }
+    .members-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

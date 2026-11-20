@@ -1,0 +1,90 @@
+---
+const news = [
+  {
+    date: 'November 2024',
+    title: 'New Paper Accepted in Physical Review D',
+    body: 'Our work on gravitational wave signatures from cosmological phase transitions has been accepted for publication.',
+  },
+  {
+    date: 'September 2024',
+    title: 'Invited Talk at COSPA 2024',
+    body: 'Our PI presented recent results on dark matter freeze-out and indirect detection at the International Symposium on Cosmology and Particle Astrophysics.',
+  },
+  {
+    date: 'August 2024',
+    title: 'New Graduate Students Join TAPPC',
+    body: 'We welcome two new M.S. students to the lab. They will work on neutrino cosmology and astroparticle phenomenology.',
+  },
+];
+---
+
+<section id="news">
+  <div class="container">
+    <div class="section-label">News &amp; Updates</div>
+    <h2>Latest from the Lab</h2>
+    <div class="section-divider"></div>
+
+    <div class="news-grid">
+      {news.map(n => (
+        <div class="news-card">
+          <div class="news-date">{n.date}</div>
+          <h3>{n.title}</h3>
+          <p>{n.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  section { padding: 100px 48px; }
+
+  h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.9rem);
+    font-weight: 400;
+    color: var(--heading);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .news-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px;
+    background: var(--white);
+    transition: box-shadow 0.2s;
+  }
+
+  .news-card:hover { box-shadow: 0 4px 20px rgba(26,77,143,0.07); }
+
+  .news-date {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--heading);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  p { font-size: 0.8375rem; color: var(--muted); line-height: 1.65; }
+
+  @media (max-width: 900px) {
+    section { padding: 72px 24px; }
+    .news-grid { grid-template-columns: 1fr; }
+  }
+</style>

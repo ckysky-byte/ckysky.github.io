@@ -1,0 +1,170 @@
+---
+const stats = [
+  { n: '15+', label: 'Publications' },
+  { n: '6', label: 'Lab Members' },
+  { n: '5+', label: 'Collaborations' },
+  { n: '2020', label: 'Founded' },
+];
+---
+
+<section id="about">
+  <div class="container">
+    <div class="section-label">About the Lab</div>
+    <h2>Bridging the cosmos<br />and the quantum world</h2>
+    <div class="section-divider"></div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          The TAPPC group at Sungkyunkwan University investigates theoretical problems
+          at the intersection of particle physics, astrophysics, and cosmology. Our work
+          spans high-energy theoretical frameworks, early-universe thermodynamics,
+          and the statistical signatures of new physics in astrophysical observations.
+        </p>
+        <p>
+          We are part of the <strong>Department of Physics</strong> and collaborate
+          closely with international partners at CERN, RIKEN, KIAS, and leading
+          cosmological survey programs. Our students gain experience in analytic
+          and numerical methods, preparing them for careers in academia and industry.
+        </p>
+        <p>
+          우리 연구실은 입자물리학, 천체물리학, 우주론의 접점에서 근본적인 이론적 문제들을
+          탐구합니다. 이론적 분석과 수치 계산을 함께 활용하여 우주의 본질을 이해하고자 합니다.
+        </p>
+        <div class="about-stats">
+          {stats.map(s => (
+            <div class="stat-box">
+              <div class="stat-number">{s.n}</div>
+              <div class="stat-label">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="about-visual">
+        <div class="cosmos-box">
+          <svg class="cosmos-svg" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background stars -->
+            <circle cx="20" cy="30" r="1" fill="white" opacity="0.4"/>
+            <circle cx="80" cy="10" r="0.8" fill="white" opacity="0.3"/>
+            <circle cx="150" cy="50" r="1.2" fill="white" opacity="0.5"/>
+            <circle cx="250" cy="20" r="0.8" fill="white" opacity="0.4"/>
+            <circle cx="320" cy="40" r="1" fill="white" opacity="0.3"/>
+            <circle cx="380" cy="15" r="0.8" fill="white" opacity="0.5"/>
+            <circle cx="60" cy="80" r="0.8" fill="white" opacity="0.3"/>
+            <circle cx="200" cy="90" r="1" fill="white" opacity="0.4"/>
+            <circle cx="340" cy="100" r="0.8" fill="white" opacity="0.3"/>
+            <circle cx="10" cy="160" r="1" fill="white" opacity="0.4"/>
+            <circle cx="390" cy="200" r="0.8" fill="white" opacity="0.3"/>
+            <circle cx="40" cy="250" r="1" fill="white" opacity="0.4"/>
+            <circle cx="300" cy="280" r="0.8" fill="white" opacity="0.3"/>
+            <circle cx="370" cy="260" r="1" fill="white" opacity="0.4"/>
+            <!-- Cosmic web lines -->
+            <line x1="200" y1="150" x2="80" y2="80" stroke="rgba(123,167,212,0.25)" stroke-width="0.8"/>
+            <line x1="200" y1="150" x2="320" y2="70" stroke="rgba(123,167,212,0.25)" stroke-width="0.8"/>
+            <line x1="200" y1="150" x2="60" y2="210" stroke="rgba(123,167,212,0.2)" stroke-width="0.8"/>
+            <line x1="200" y1="150" x2="340" y2="230" stroke="rgba(123,167,212,0.2)" stroke-width="0.8"/>
+            <line x1="200" y1="150" x2="130" y2="260" stroke="rgba(123,167,212,0.15)" stroke-width="0.8"/>
+            <line x1="200" y1="150" x2="270" y2="280" stroke="rgba(123,167,212,0.15)" stroke-width="0.8"/>
+            <line x1="80" y1="80" x2="60" y2="210" stroke="rgba(123,167,212,0.12)" stroke-width="0.6"/>
+            <line x1="320" y1="70" x2="340" y2="230" stroke="rgba(123,167,212,0.12)" stroke-width="0.6"/>
+            <!-- Orbit rings -->
+            <circle cx="200" cy="150" r="90" stroke="rgba(123,167,212,0.12)" stroke-width="0.8" stroke-dasharray="4 6"/>
+            <circle cx="200" cy="150" r="130" stroke="rgba(123,167,212,0.08)" stroke-width="0.8" stroke-dasharray="3 8"/>
+            <!-- Nodes -->
+            <circle cx="80" cy="80" r="5" fill="rgba(123,167,212,0.5)"/>
+            <circle cx="320" cy="70" r="4" fill="rgba(123,167,212,0.4)"/>
+            <circle cx="60" cy="210" r="4.5" fill="rgba(123,167,212,0.45)"/>
+            <circle cx="340" cy="230" r="3.5" fill="rgba(123,167,212,0.35)"/>
+            <circle cx="130" cy="260" r="3" fill="rgba(123,167,212,0.3)"/>
+            <circle cx="270" cy="280" r="4" fill="rgba(123,167,212,0.4)"/>
+            <!-- Central body -->
+            <circle cx="200" cy="150" r="38" fill="none" stroke="rgba(184,151,61,0.4)" stroke-width="1"/>
+            <circle cx="200" cy="150" r="30" fill="rgba(184,151,61,0.08)"/>
+            <circle cx="200" cy="150" r="20" fill="rgba(184,151,61,0.12)"/>
+            <circle cx="200" cy="150" r="10" fill="rgba(184,151,61,0.3)"/>
+            <circle cx="200" cy="150" r="4" fill="#b8973d" opacity="0.9"/>
+            <!-- Label -->
+            <text x="200" y="260" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="8" font-family="Inter, sans-serif" letter-spacing="2">COSMIC WEB · TAPPC</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section { padding: 100px 48px; background: var(--off-white); }
+
+  h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.9rem);
+    font-weight: 400;
+    color: var(--heading);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: start;
+    margin-top: 56px;
+  }
+
+  .about-text p {
+    margin-bottom: 18px;
+    font-size: 0.9375rem;
+    color: var(--body);
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 36px;
+  }
+
+  .stat-box {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    background: var(--white);
+  }
+
+  .stat-number {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .cosmos-box {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--heading);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .cosmos-svg { width: 90%; height: 90%; opacity: 0.85; }
+
+  @media (max-width: 900px) {
+    section { padding: 72px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>

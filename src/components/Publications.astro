@@ -1,0 +1,166 @@
+---
+const pubs = [
+  {
+    year: '2024',
+    title: 'Gravitational Wave Signals from First-Order Phase Transitions in Extended Scalar Sectors',
+    authors: 'Author A, Author B, et al. (TAPPC)',
+    journal: 'Physical Review D · arXiv:24XX.XXXXX',
+    badge: 'Featured',
+    featured: true,
+  },
+  {
+    year: '2024',
+    title: 'Dark Matter Freeze-out Beyond the Standard Halo Model: Constraints from CMB Anisotropies',
+    authors: 'Author A, Author C, et al. (TAPPC)',
+    journal: 'Journal of Cosmology and Astroparticle Physics',
+    badge: 'JCAP',
+    featured: false,
+  },
+  {
+    year: '2023',
+    title: 'Leptogenesis via Heavy Sterile Neutrino Oscillations in the Non-Equilibrium Regime',
+    authors: 'Author B, Author D, et al. (TAPPC)',
+    journal: 'Physical Review Letters',
+    badge: 'PRL',
+    featured: true,
+  },
+  {
+    year: '2023',
+    title: 'Primordial Black Holes and the Stochastic Gravitational Wave Background: A Unified Picture',
+    authors: 'Author A, Author B, Author E (TAPPC)',
+    journal: 'Physical Review D',
+    badge: 'PRD',
+    featured: false,
+  },
+  {
+    year: '2022',
+    title: 'Big Bang Nucleosynthesis Constraints on Light Dark Sector Models',
+    authors: 'Author C, Author A, et al. (TAPPC)',
+    journal: 'Physics Letters B',
+    badge: 'PLB',
+    featured: false,
+  },
+];
+---
+
+<section id="publications">
+  <div class="container">
+    <div class="section-label">Selected Publications</div>
+    <h2>Recent Work</h2>
+    <div class="section-divider"></div>
+
+    <div class="pub-list">
+      {pubs.map(pub => (
+        <div class="pub-item">
+          <div class="pub-year">{pub.year}</div>
+          <div class="pub-content">
+            <div class="pub-title">{pub.title}</div>
+            <div class="pub-authors">{pub.authors}</div>
+            <div class="pub-journal">{pub.journal}</div>
+          </div>
+          <span class={`pub-badge${pub.featured ? ' featured' : ''}`}>{pub.badge}</span>
+        </div>
+      ))}
+    </div>
+
+    <p class="pub-footer">
+      Full list on
+      <a href="https://arxiv.org/search/?searchtype=author&query=TAPPC">arXiv</a>
+      and <a href="https://inspirehep.net/">INSPIRE-HEP</a>.
+    </p>
+  </div>
+</section>
+
+<style>
+  section { padding: 100px 48px; }
+
+  h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.9rem);
+    font-weight: 400;
+    color: var(--heading);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .pub-list {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .pub-item {
+    background: var(--white);
+    padding: 28px 32px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    transition: background 0.15s;
+  }
+
+  .pub-item:hover { background: var(--off-white); }
+
+  .pub-year {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--muted);
+    min-width: 48px;
+    padding-top: 2px;
+  }
+
+  .pub-content { flex: 1; }
+
+  .pub-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--heading);
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .pub-authors { font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; }
+
+  .pub-journal {
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .pub-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .pub-badge.featured {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .pub-footer {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .pub-footer a { color: var(--accent); }
+
+  @media (max-width: 900px) {
+    section { padding: 72px 24px; }
+    .pub-item { flex-wrap: wrap; }
+  }
+</style>

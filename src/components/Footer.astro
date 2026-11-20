@@ -1,0 +1,58 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="footer-inner container">
+    <div>
+      <div class="footer-logo"><span>TAPPC</span> Lab</div>
+      <div class="footer-sub">Theoretical Astro-Particle Physics and Cosmology</div>
+      <div class="footer-sub ko">천체입자물리학 및 우주론 이론 연구실</div>
+    </div>
+    <div class="footer-right">
+      <div>Sungkyunkwan University</div>
+      <div>Department of Physics, Suwon, Korea</div>
+      <div class="copy">© {year} TAPPC Lab. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--heading);
+    color: rgba(255,255,255,0.5);
+    padding: 48px;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 4px;
+  }
+
+  .footer-logo span { color: #7ba7d4; }
+
+  .footer-sub {
+    font-size: 0.75rem;
+    margin-top: 2px;
+  }
+
+  .footer-sub.ko { margin-top: 4px; }
+
+  .footer-right { text-align: right; font-size: 0.75rem; }
+
+  .copy { margin-top: 8px; }
+
+  @media (max-width: 768px) {
+    footer { padding: 40px 24px; }
+    .footer-inner { flex-direction: column; gap: 20px; }
+    .footer-right { text-align: center; }
+  }
+</style>

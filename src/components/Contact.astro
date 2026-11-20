@@ -1,0 +1,171 @@
+---
+---
+
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Contact &amp; Location</div>
+    <h2>Get in Touch</h2>
+    <div class="section-divider"></div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>TAPPC Laboratory</h3>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="label">Address</div>
+            <div class="value">Department of Physics, Sungkyunkwan University<br />
+              2066 Seobu-ro, Jangan-gu, Suwon, Gyeonggi-do 16419, Korea</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div>
+            <div class="label">Email</div>
+            <div class="value">tappc@skku.edu</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <div>
+            <div class="label">Office</div>
+            <div class="value">Science Building, Room XXX<br />성균관대학교 과학관 XXX호</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="join-box">
+        <h3>Join Our Team</h3>
+        <p>
+          We are always looking for motivated students and researchers interested in
+          theoretical astro-particle physics and cosmology. Prospective members are
+          encouraged to contact us before applying.
+        </p>
+        <ul class="positions">
+          <li>M.S./Ph.D positions available (2025 Spring/Fall)</li>
+          <li>Postdoctoral fellowship openings (contact us)</li>
+          <li>Undergraduate research internships (semester-long)</li>
+        </ul>
+        <a href="mailto:tappc@skku.edu" class="btn btn-primary">Contact the PI</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section { padding: 100px 48px; background: var(--off-white); }
+
+  h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.9rem);
+    font-weight: 400;
+    color: var(--heading);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    margin-top: 56px;
+  }
+
+  h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--heading);
+    margin-bottom: 24px;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--accent-light);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .contact-icon svg { width: 16px; height: 16px; }
+
+  .label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .value { font-size: 0.875rem; color: var(--body); line-height: 1.6; }
+
+  .join-box {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 40px;
+    background: var(--white);
+  }
+
+  .join-box p { font-size: 0.875rem; color: var(--muted); margin-bottom: 24px; line-height: 1.75; }
+
+  .positions {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .positions li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--body);
+  }
+
+  .positions li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 900px) {
+    section { padding: 72px 24px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
