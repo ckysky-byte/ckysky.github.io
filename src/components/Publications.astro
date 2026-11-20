@@ -1,10 +1,50 @@
 ---
 const pubs = [
-  { year: '2024', title: 'Dark matter constraints from cosmic microwave background anisotropies', authors: 'T. Author, K. Choi et al.', journal: 'Physical Review D', vol: '109, 083512', badge: 'PRD' },
-  { year: '2023', title: 'Gravitational wave signatures of electroweak phase transitions in extensions of the Standard Model', authors: 'K. Choi, S. Lee et al.', journal: 'Journal of Cosmology and Astroparticle Physics', vol: '2023, 041', badge: 'JCAP' },
-  { year: '2023', title: 'Primordial nucleosynthesis bounds on new light degrees of freedom', authors: 'K. Choi et al.', journal: 'Physics Letters B', vol: '840, 137894', badge: 'PLB' },
-  { year: '2022', title: 'Neutrino self-interactions and structure formation', authors: 'T. Author, K. Choi et al.', journal: 'Physical Review Letters', vol: '129, 101103', badge: 'PRL' },
-  { year: '2022', title: 'Axion dark matter and stellar evolution', authors: 'K. Choi, B. Park et al.', journal: 'Journal of High Energy Physics', vol: '2022, 113', badge: 'JHEP' },
+  {
+    year: '2023',
+    title: 'Non-thermal WIMPy Baryogenesis with Primordial Black Hole',
+    authors: 'K. Y. Choi, J. Kim and E. Lkhagvadorj',
+    journal: 'Journal of Cosmology and Astroparticle Physics',
+    vol: 'arXiv:2309.16122 [hep-ph], accepted',
+    badge: 'JCAP',
+    arxiv: 'https://arxiv.org/abs/2309.16122'
+  },
+  {
+    year: '2023',
+    title: 'Light cold dark matter from non-thermal decay',
+    authors: 'K. Y. Choi, J. O. Gong, J. Joh, W. I. Park and O. Seto',
+    journal: 'Physics Letters B',
+    vol: '845, 138126',
+    badge: 'PLB',
+    arxiv: 'https://arxiv.org/abs/2304.07462'
+  },
+  {
+    year: '2023',
+    title: 'Probing sterile neutrino dark matter in the PTOLEMY-like experiment',
+    authors: 'K. Y. Choi, E. Lkhagvadorj and S. M. Yoo',
+    journal: 'Journal of Cosmology and Astroparticle Physics',
+    vol: '06 (2023) 021',
+    badge: 'JCAP',
+    arxiv: 'https://arxiv.org/abs/2212.14192'
+  },
+  {
+    year: '2023',
+    title: 'Cored dark matter halos in the cosmic neutrino background',
+    authors: 'W. Cho, K. Y. Choi and H. J. Kim',
+    journal: 'Journal of Cosmology and Astroparticle Physics',
+    vol: '07 (2023) 013',
+    badge: 'JCAP',
+    arxiv: 'https://arxiv.org/abs/2204.01431'
+  },
+  {
+    year: '2022',
+    title: 'Potential reconstruction from general power spectrum in single-field inflation',
+    authors: 'K. Y. Choi, J. O. Gong, S. b. Kang and R. N. Raveendran',
+    journal: 'Journal of Cosmology and Astroparticle Physics',
+    vol: '01 (2022) 012',
+    badge: 'JCAP',
+    arxiv: 'https://arxiv.org/abs/2109.14241'
+  },
 ];
 ---
 <section id="publications">
@@ -26,7 +66,7 @@ const pubs = [
             <p class="pub-authors">{p.authors}</p>
             <p class="pub-journal"><em>{p.journal}</em> {p.vol}</p>
           </div>
-          <a href="#" class="pub-link" title="View paper">
+          <a href={p.arxiv} target="_blank" rel="noopener" class="pub-link" title="View on arXiv">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
@@ -34,8 +74,8 @@ const pubs = [
     </div>
 
     <div class="pub-footer">
-      <a href="https://inspirehep.net" target="_blank" rel="noopener" class="btn-ghost">
-        View All on InspireHEP →
+      <a href="https://inspirehep.net/authors?sort=mostrecent&size=25&page=1&q=Ki-Young%20Choi&ui-citation-summary=true" target="_blank" rel="noopener" class="btn-ghost">
+        View All Publications on InspireHEP →
       </a>
     </div>
   </div>
